@@ -11,13 +11,14 @@
   "author": "l.piciollo",
   "license": "ISC",
   "dependencies": {
+    "@types/lodash": "^4.14.176",
+    "@types/node": "^16.11.7",
     "awesome-typescript-loader": "^5.2.1",
     "moment": "^2.29.1",
     "rollup-plugin-uglify": "^6.0.4",
+    "rxjs": "^7.4.0",
     "tsc-loader": "^1.0.4",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "@types/lodash": "^4.14.176",
-    "@types/node": "^16.11.7"
+    "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.176",
