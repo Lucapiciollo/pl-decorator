@@ -1,9 +1,8 @@
-
-# Welcome to pl-core-utils-library!
+ # Welcome to pl-core-utils-library!
 
 pl-decorator is a collection of decorator that support developer to develop solutions in low time expend
 
-----------------
+---
 
 ## Installation
 
@@ -12,27 +11,35 @@ Install pl-decorator with npm
 ```
   npm install pl-decorator
 ```
-----------------
+
+---
+
 ## Features
+
 In this version, there are very utility for decorate class, properties, attribute of class and other
 
 Decorator Class:
+
 - **@Singleton()**
 - **@Injectable()**
 
 Decorator method:
+
 - **@Log**(mode: "log" | "debug" | "info" | "warn" = "log")
 - **@TryCatch**(errorHandle: new () => ErrorHandle)
 - **@Delay**(milliseconds)
 
 Decorator for attribute class:
+
 - **@FormatDate**(format: string = "DD/MM/yyyy HH: mm: ss", localeId = "it")
 - **@FormatNumber**(format: string | string[] = FORMAT_NUMBER.IT, options?: Intl.NumberFormatOptions)
 - **@Inject**(type:Class)
 
-----------------
+---
+
 ## Usage/Examples
-@Log
+
+#### @Log
 
 This annotation takes care of wrapping the annotated function and inserting the start and end function log. The logs report both the input parameters and the return value, in case the function returns a value
 
@@ -54,8 +61,10 @@ export class Test {
   }
 }
 ```
-----------------
-@TryCatch()
+
+---
+
+#### @TryCatch()
 
 This annotation wrap method adding tye catch block and centralize all throws of exception in HandlerError. The annotation receives in input any class that implements the herrorhandler interface in order to then pass the result of the encountered exception, thus centralizing the handling of errors.
 
@@ -80,8 +89,10 @@ This annotation wrap method adding tye catch block and centralize all throws of 
         }
     }
 ```
-----------------
-@Singleton
+
+---
+
+#### @Singleton
 
 This annotation implement singleton pattern for class. By annotating a class with this annotation, at the time of construction of the class, its previously created instance is returned, if it is not available, a new class is created and the instance is saved to make it available later.
 
@@ -95,30 +106,32 @@ This annotation implement singleton pattern for class. By annotating a class wit
     }
 
 ```
-----------------
-@FormatDate
 
-This annotation is responsible for formatting date how we prefer. The allowed values ​​are calculated according to this format.
+---
 
--     YYYY: 4-digit year '2019'
--     YY: 2-digit year '19'
--     MMMM: Full-length month 'June'
--     MMM: 3 character month 'Jun'
--     MM: Month of the year, zero-padded '06'
--     M: Month of the year '6'
--     DD: Day of the month, zero-padded '01'
--     D: Day of the month '1'
--     Do: Day of the month with numeric ordinal contraction '1st'
--     HH: hour of day from 0-24, zero-padded, '14'
--     H: hour of day from 0-24, '14'
--     hh: hour of day on 12-hour clock, zero-padded, '02'
--     h: hour of the day on 12 hour clock, '2'
--     mm: minute, zero-padded, '04'
--     m: minute, '4'
--     ss: second, zero-padded
--     s: second
--     A: 'AM' or 'PM'
--     a: 'am' or 'pm'
+#### @FormatDate
+
+This annotation is responsible for formatting date how we prefer. The allowed values are calculated according to this format.
+
+1. YYYY: 4-digit year '2019'
+2. YY: 2-digit year '19'
+3. MMMM: Full-length month 'June'
+4. MMM: 3 character month 'Jun'
+5. MM: Month of the year, zero-padded '06'
+6. M: Month of the year '6'
+7. DD: Day of the month, zero-padded '01'
+8. D: Day of the month '1'
+9. Do: Day of the month with numeric ordinal contraction '1st'
+10. HH: hour of day from 0-24, zero-padded, '14'
+11. H: hour of day from 0-24, '14'
+12. hh: hour of day on 12-hour clock, zero-padded, '02'
+13. h: hour of the day on 12 hour clock, '2'
+14. mm: minute, zero-padded, '04'
+15. m: minute, '4'
+16. ss: second, zero-padded
+17. s: second
+18. A: 'AM' or 'PM'
+19. a: 'am' or 'pm'
 
 ```javascript
     export class Test {
@@ -131,11 +144,11 @@ This annotation is responsible for formatting date how we prefer. The allowed va
             return this.time;
         }
     }
-
-
 ```
-----------------
-@FormatNumber
+-------------------
+
+#### @FormatNumber
+
 
 This annotation is responsible for formatting number how we prefer, by currency or other, for example
 
@@ -154,17 +167,18 @@ This annotation is responsible for formatting number how we prefer, by currency 
         }
     }
 ```
+
 When we print value of variable, it's formatted with DE, and GBP currency.. this is optional, in casi default is IT
 
-----------------
+---
 
-@Delay
+#### @Delay
 
 This annotation is responsible for scedue execution function, it's run at time in input
 
 ```javascript
     export class Test {
-       
+
         public time: Date = null;
 
         constructor() { this.time=new Date()}
@@ -175,21 +189,20 @@ This annotation is responsible for scedue execution function, it's run at time i
         }
     }
 ```
+
 for call method **getTime(), is necessary run with await declaration**,
 
-    public async method() {
-        let t1 = new Test();
-        let response = await t1.getTime();
-        console.log(response);
-    }
-----------------
-----------------
+	public async method() {
+		let t1 = new Test();
+		let response = await t1.getTime();
+		console.log(response);
+	}
+________
 
-@Injectable
-@Inject
+#### @Injectable
+#### @Inject
 
 These annotations must be placed one on the class to be made injectable and one on the class attribute, where the class declared in the same annotation will be injected. The class will be injected only if it is marked @Injectable, otherwise an error will be thrown indicating that the class cannot be injected.
-
 
 ```javascript
     @Injectable
@@ -215,7 +228,7 @@ These annotations must be placed one on the class to be made injectable and one 
     export class main {
         @Inject(Test1) test1:Test1;
         @Inject(Test2) test2:Test2;
-        
+
         console.log(this.test2.time);
         console.log(this.test1.time);
 
@@ -224,10 +237,11 @@ These annotations must be placed one on the class to be made injectable and one 
     }
 
 ```
+
 All properties marked with @Inject(...) are created automatically and wil be in singleton mode
 
-----------------
+---
+
 ## Authors
 
 - @l.piciollo
-
