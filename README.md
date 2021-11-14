@@ -17,24 +17,24 @@ Install pl-decorator with npm
 In this version, there are very utility for decorate class, properties, attribute of class and other
 
 Decorator Class:
-- @Singleton()
-- @Injectable()
+- **@Singleton()**
+- **@Injectable()**
 
 Decorator method:
-- @Log(mode: "log" | "debug" | "info" | "warn" = "log")
-- @TryCatch(errorHandle: new () => ErrorHandle)
-- @Delay(milliseconds)
+- **@Log**(mode: "log" | "debug" | "info" | "warn" = "log")
+- **@TryCatch**(errorHandle: new () => ErrorHandle)
+- **@Delay**(milliseconds)
 
 Decorator for attribute class:
-- @FormatDate(format: string = "DD/MM/yyyy HH:mm:ss", localeId = "it")
-- @FormatNumber(format: string | string[] = FORMAT_NUMBER.IT, options?: Intl.NumberFormatOptions)
-- @Inject(type:Class)
+- **@FormatDate**(format: string = "DD/MM/yyyy HH: mm: ss", localeId = "it")
+- **@FormatNumber**(format: string | string[] = FORMAT_NUMBER.IT, options?: Intl.NumberFormatOptions)
+- **@Inject**(type:Class)
 
 ----------------
-## Usage/Examples 
+## Usage/Examples
 @Log
 
-This annotation wrap method adding log function
+This annotation takes care of wrapping the annotated function and inserting the start and end function log. The logs report both the input parameters and the return value, in case the function returns a value
 
 ```javascript
 import { Log  } from "pl-decorator"
@@ -57,7 +57,7 @@ export class Test {
 ----------------
 @TryCatch()
 
-This annotation wrap method adding tye catch block and centralize all throws of exception in HandlerError
+This annotation wrap method adding tye catch block and centralize all throws of exception in HandlerError. The annotation receives in input any class that implements the herrorhandler interface in order to then pass the result of the encountered exception, thus centralizing the handling of errors.
 
 ```javascript
     @Singleton
@@ -83,16 +83,14 @@ This annotation wrap method adding tye catch block and centralize all throws of 
 ----------------
 @Singleton
 
-This annotation implement singleton pattern for class
+This annotation implement singleton pattern for class. By annotating a class with this annotation, at the time of construction of the class, its previously created instance is returned, if it is not available, a new class is created and the instance is saved to make it available later.
 
 ```javascript
     @Singleton
     export class MyErrorHandler implements ErrorHandle {
-        constructor() {
-
-        }
+        constructor() {  }
         handleError(error: Error, propertyKey: string) {
-        console.log(`Exception from  method ${propertyKey}`);
+        	console.log(`Exception from  method ${propertyKey}`);
         }
     }
 
@@ -100,7 +98,27 @@ This annotation implement singleton pattern for class
 ----------------
 @FormatDate
 
-This annotation is responsible for formatting date how we prefer
+This annotation is responsible for formatting date how we prefer. The allowed values ​​are calculated according to this format.
+
+-     YYYY: 4-digit year '2019'
+-     YY: 2-digit year '19'
+-     MMMM: Full-length month 'June'
+-     MMM: 3 character month 'Jun'
+-     MM: Month of the year, zero-padded '06'
+-     M: Month of the year '6'
+-     DD: Day of the month, zero-padded '01'
+-     D: Day of the month '1'
+-     Do: Day of the month with numeric ordinal contraction '1st'
+-     HH: hour of day from 0-24, zero-padded, '14'
+-     H: hour of day from 0-24, '14'
+-     hh: hour of day on 12-hour clock, zero-padded, '02'
+-     h: hour of the day on 12 hour clock, '2'
+-     mm: minute, zero-padded, '04'
+-     m: minute, '4'
+-     ss: second, zero-padded
+-     s: second
+-     A: 'AM' or 'PM'
+-     a: 'am' or 'pm'
 
 ```javascript
     export class Test {
@@ -157,7 +175,7 @@ This annotation is responsible for scedue execution function, it's run at time i
         }
     }
 ```
-for call method getTime(), is necessary run with await declaration,
+for call method **getTime(), is necessary run with await declaration**,
 
     public async method() {
         let t1 = new Test();
@@ -170,7 +188,8 @@ for call method getTime(), is necessary run with await declaration,
 @Injectable
 @Inject
 
-This annotation is responsible for scedue execution function, it's run at time in input
+These annotations must be placed one on the class to be made injectable and one on the class attribute, where the class declared in the same annotation will be injected. The class will be injected only if it is marked @Injectable, otherwise an error will be thrown indicating that the class cannot be injected.
+
 
 ```javascript
     @Injectable

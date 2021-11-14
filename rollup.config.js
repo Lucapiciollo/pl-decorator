@@ -11,10 +11,10 @@ export default [
     plugins: [
       typescript(),
       
-/*       obfuscatorPlugin({
+       obfuscatorPlugin({
         compact: true,sourceMap:false
       }),
-      uglify() */
+      uglify()
     ],
   },
   {
@@ -26,10 +26,10 @@ export default [
     plugins: [
       typescript(),
    
-/*       obfuscatorPlugin({
+        obfuscatorPlugin({
         compact: true,sourceMap:false
       }),
-      uglify() */
+      uglify()
     ],
   },
 ];
