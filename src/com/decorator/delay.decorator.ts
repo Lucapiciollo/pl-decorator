@@ -8,10 +8,11 @@
  * 
  */
 
-import { interval, take } from "rxjs";
+
+const { interval, take } = require('rxjs');
 import { Utils } from "../utils/Utils";
 
- 
+
 /****************************************************************************************************************** */
 export const Delay = (milliseconds: number = 0) => {
     return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {

@@ -3,13 +3,14 @@
   "compilerOptions": {
     "outDir": "lib",
     "target": "es6",
-    "module": "ES2020",
+    "module": "ES2015",
     "lib": [
       "es2018",
       "dom"
     ],
     "sourceMap": true,
-    "experimentalDecorators":true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "strict": true,
     "strictFunctionTypes": true,
     "noImplicitReturns": true,
