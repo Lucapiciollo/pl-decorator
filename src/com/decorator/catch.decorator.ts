@@ -20,7 +20,7 @@ export const TryCatch = (errorHandle: new () => ErrorHandle) => {
         let original = descriptor.value;
         descriptor.value = function (...args: any[]) {
             try {
-                original.apply(this, args);
+                return original.apply(this, args);
             } catch (e:any) {
                let app= new errorHandle();
                app.handleError(e, propertyKey)

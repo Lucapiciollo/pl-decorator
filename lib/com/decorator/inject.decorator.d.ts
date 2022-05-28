@@ -1,4 +1,3 @@
-import "reflect-metadata";
 /**
  * @author l.piciollo
  * @param type

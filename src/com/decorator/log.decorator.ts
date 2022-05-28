@@ -13,16 +13,16 @@ export const Log = (mode: "log" | "debug" | "info" | "warn" = "log") => {
     return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
         const colorTrace = (msg: any) => {
             // @ts-ignore
-            console[mode]("%c" + [moment().format("HH:mm:ss"),...msg].join(" "), "color: white; background:blue");
+            console[mode]("%c" + [moment().format("HH:mm:ss"), ...msg].join(""), "color: white; background:darkslateblue");
         }
         let original = descriptor.value;
         descriptor.value = function (...args: any[]) {
-            colorTrace(["- Called method START: ", target.constructor.name, "=>", propertyKey, JSON.stringify(args)].join(" "))
+            colorTrace(["- Called method START: ", target.constructor.name, " => ", propertyKey, "( ", JSON.stringify(args), " )"].join(""))
             const result = original.apply(this, args);
-            colorTrace([" - Called method END: ", target.constructor.name, "=>", propertyKey, result == undefined ? "-NO RESULT-" : JSON.stringify(result)].join(" "))
+            colorTrace([" - Called method END: ", target.constructor.name, " => ", propertyKey, " return: ", result == undefined ? "-NO RESULT-" : JSON.stringify(result)].join(""))
             return result;
         }
         return descriptor;
     }
-};
+}
 /****************************************************************************************************************** */

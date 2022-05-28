@@ -1,4 +1,4 @@
-import "reflect-metadata";
+/* import "reflect-metadata"; */
  
 import { Singleton } from "./singleton.decorator";
 
@@ -49,7 +49,7 @@ export const Inject = <T extends new (...args: any[]) => any>(type: any) => {
                     (<any>myClassInstance).singleton = true;
                     return myClassInstance;
                 }
-                colorTrace([` ${typeClassName} is not injectable, delete @Inject(${typeClassName}) on attribure ${key} in ${nameCass}`].join(" "))
+                colorTrace([` ${typeClassName} is not injectable, delete @Inject(${typeClassName}) on attribure ${key} in ${nameCass}`].join(""))
                 throw new Error(`### ${typeClassName} is not injectable ###`)
             }
         })

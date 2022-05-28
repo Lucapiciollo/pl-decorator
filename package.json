@@ -1,13 +1,13 @@
 {
   "name": "pl-decorator",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "utility decorator",
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
     "build-webpack": "tsc && tsc -m es6 --outDir lib-esm && webpack --mode=production",
-    "publish-npm": "npm run build && npm pack && npm publish"
+    "publish-npm": "npm run build  && npm pack && npm publish"
   },
   "author": "l.piciollo",
   "license": "ISC",
@@ -21,7 +21,6 @@
     "rxjs": "^7.4.0",
     "tsc-loader": "^1.0.4",
     "uglifyjs-webpack-plugin": "^2.2.0"
-     
   },
   "devDependencies": {
     "@types/lodash": "^4.14.176",

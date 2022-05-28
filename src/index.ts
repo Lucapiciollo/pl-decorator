@@ -12,4 +12,5 @@ export { Log } from "./com/decorator/log.decorator";
 export { FormatDate } from "./com/decorator/format-date.decorator";
 export { Delay } from "./com/decorator/delay.decorator";
 export { FormatNumber, FORMAT_NUMBER } from "./com/decorator/number-format.decorator";
+export { Unsubscribe} from "./com/decorator/unsubscribe.decorator"
 export {Inject,Injectable} from "./com/decorator/inject.decorator";
