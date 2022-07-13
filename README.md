@@ -340,7 +340,7 @@ This annotation is responsible for scedue execution function, it's run at time i
 
   
 
-for call method **getTime(), is necessary run with await declaration**,      
+for call method **getTime(), is necessary run with await declaration**,       
 
 
 	public async method() {
