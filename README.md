@@ -310,7 +310,7 @@ export  class  Test {
 
   
 
-When we print value of variable, it's formatted with DE, and GBP currency.. this is optional, in casi default is IT
+When we print value of variable, it's formatted with DE, and GBP currency.. this is optional, in casi default is IT 
 
   
 
