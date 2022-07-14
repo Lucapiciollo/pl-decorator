@@ -5,9 +5,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c",
-    "build-webpack": "tsc && tsc -m es6 --outDir lib-esm && webpack --mode=production",
-    "publish-npm": "npm run build  && npm pack && npm publish"
+    "build": "rollup -c ",
+    "publish-npm": "npm run build && npm pack && npm publish  "
   },
   "author": "l.piciollo",
   "license": "ISC",
