@@ -23,4 +23,9 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run build'
-    + ${PORT:-8080}
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+    StoreAsTar: true
