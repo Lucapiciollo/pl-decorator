@@ -36,3 +36,7 @@ steps:
     ArtifactName: 'pl-decorator'
     publishLocation: 'Container'
     StoreAsTar: true
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'current'
+    targetPath: '$(Pipeline.Workspace)'
