@@ -26,6 +26,6 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    ArtifactName: 'pl-decorator'
     publishLocation: 'Container'
     StoreAsTar: true
