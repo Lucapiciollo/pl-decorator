@@ -12,7 +12,7 @@
 /****************************************************************************************************************** */
 /* @Singleton */
 export interface   ErrorHandle {
-     handleError(error: Error,  propertyKey: string);
+     handleError(error: any,  propertyKey: string);
 }
 /****************************************************************************************************************** */
 export const TryCatch = (errorHandle: new () => ErrorHandle) => {
@@ -21,7 +21,7 @@ export const TryCatch = (errorHandle: new () => ErrorHandle) => {
         descriptor.value = function (...args: any[]) {
             try {
                 return original.apply(this, args);
-            } catch (e:any) {
+            } catch (e) {
                let app= new errorHandle();
                app.handleError(e, propertyKey)
             }

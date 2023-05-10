@@ -19,7 +19,7 @@ export type Singleton<T extends new (...args: any[]) => any> = T & {
 export const Singleton = <T extends new (...args: any[]) => any>(type: T) =>
     new Proxy(type, {
         construct(target: Singleton<T>, argsList, newTarget) {
-            console.info(`%c PL-decorator Singleton -  Class: ${type.name} is in singleton mode...`, `color: blue `)
+            console.debug(`%c PL-decorator Singleton -  Class: ${type.name} is in singleton mode...`, `color: blue `)
             if (target.prototype !== newTarget.prototype) {
                 return Reflect.construct(target, argsList, newTarget);
             }

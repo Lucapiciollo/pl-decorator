@@ -28,7 +28,7 @@ const manager = new DependencyManager();
 
 const colorTrace = (msg: any) => {
     // @ts-ignore
-    console.log("%c" + [moment().format("HH:mm:ss"), ...msg].join(" "), "color: red; ");
+    console.debug("%c" + [moment().format("HH:mm:ss"), ...msg].join(" "), "color: red; ");
 }
 /**
  * @author l.piciollo

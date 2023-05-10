@@ -8,7 +8,7 @@
  */
 /****************************************************************************************************************** */
 export interface ErrorHandle {
-    handleError(error: Error, propertyKey: string): any;
+    handleError(error: any, propertyKey: string): any;
 }
 /****************************************************************************************************************** */
 export declare const TryCatch: (errorHandle: new () => ErrorHandle) => (target: any, propertyKey: string, descriptor: PropertyDescriptor) => PropertyDescriptor;

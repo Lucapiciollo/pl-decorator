@@ -17,15 +17,14 @@ export const Unsubscribe = (ignore = []): ClassDecorator => {
         if (!ignore.includes(prop)) {
           if (property && (typeof property.unsubscribe === "function")) {
             try {
-              console.info(`%c PLUnsubscribe -  Class:   ${constructor.name} unsubscriber: ${prop} `, `color: green `);
+              console.debug(`%c PLUnsubscribe -  Class:   ${constructor.name} unsubscriber: ${prop} `, `color: green `);
               property.unsubscribe();
             } catch (error) {
               console.error(`%c PLUnsubscribe -  Class:  ${constructor.name}  unsubscriber: ${prop} ERROR: `, `color: red `, error || "");
             }
           }
         }
-        console.info(`%c PLUnsubscribe -  Class:   ${constructor.name} unsubscriber IGNORED: ${prop} `, `color: blue `);
-      }
+       }
       if (original) original.apply(this); 
     };
   
