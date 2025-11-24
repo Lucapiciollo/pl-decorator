@@ -1,6 +1,6 @@
 {
   "name": "pl-decorator",
-  "version": "1.4.0",
+  "version": "1.4.31",
   "description": "utility decorator",
   "main": "./lib/index.js",
   "scripts": {
@@ -20,14 +20,17 @@
     "rollup-plugin-uglify": "^6.0.4",
     "rxjs": "^7.4.0",
     "tsc-loader": "^1.0.4",
+    "tslib": "^2.6.2",
     "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-commonjs": "^25.0.7",
     "@types/lodash": "^4.14.176",
     "@types/node": "^16.11.7",
     "rollup": "^2.59.0",
     "rollup-plugin-javascript-obfuscator": "^1.0.4",
-    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-typescript2": "^0.36.0",
     "ts-loader": "^9.2.6",
     "typescript": "^4.4.4",
     "webpack": "^5.63.0",
